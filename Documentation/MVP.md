@@ -1,1 +1,0 @@
-# Shoppy-Art
