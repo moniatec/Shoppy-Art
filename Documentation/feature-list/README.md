@@ -18,6 +18,7 @@
    * Supports removing items from the cart.
   
 4. Track order
+   * Supports tracking a purchased order for the user
    
 5. Search Feature
    * Supports searching for an item.

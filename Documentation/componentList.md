@@ -13,7 +13,7 @@
 * main container component
    * items component
      * item component
-* Item comonent 
+* Item component 
     * add-to-cart
 
   
