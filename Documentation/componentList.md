@@ -6,14 +6,14 @@
    * profile component
    * Cart component
       * cart-list-componet
-         * cart-item-component 
-           * remove item
-      * purchase items
+         * cart-product-component 
+           * remove product
+      * purchase products
    * search component 
 * main container component
-   * items component
-     * item component
-* Item component 
+   * products component
+     * product component
+* Product component 
     * add-to-cart
 
   

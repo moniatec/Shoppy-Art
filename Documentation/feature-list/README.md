@@ -11,7 +11,7 @@
    * list of products with image of the product and a price.
    * Supports adding item to the cart
   
-3. Sopping Cart
+3. Shopping Cart
    * Showa/displays the items choosen/picked by the user.
    * Shows the total number of items.
    * Shows the total amount to be purchased.
