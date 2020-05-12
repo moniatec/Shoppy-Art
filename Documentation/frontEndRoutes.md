@@ -1,5 +1,6 @@
-* / (splash or main)
+* / (splash )
   * Splash
+* /main (main)
   * Nav bar
   * Main container(shows a list of products)
   * This is the page where profiles "pop-up" on(if the user is logged in)

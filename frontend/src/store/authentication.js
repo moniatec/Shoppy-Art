@@ -1,60 +1,39 @@
-import { apiBaseUrl } from '../config';
+import { apiBaseUrl } from "../config";
 
-const TOKEN_KEY = 'shoppyArt/authentication/token';
-const SET_TOKEN = 'shoppyArt/authentication/SET_TOKEN';
-const REMOVE_TOKEN = 'shoppyArt/authentication/REMOVE_TOKEN';
+const TOKEN_KEY = "shoppyArt/authentication/token";
+const SET_TOKEN = "shoppyArt/authentication/SET_TOKEN";
+const REMOVE_TOKEN = "shoppyArt/authentication/REMOVE_TOKEN";
 
-export const removeToken = token => ({ type: REMOVE_TOKEN });
-export const setToken = token => ({ type: SET_TOKEN, token });
+export const removeToken = (token) => ({ type: REMOVE_TOKEN });
+export const setToken = (token) => ({ type: SET_TOKEN, token });
 
-export const loadToken = () => async dispatch => {
+export const loadToken = () => async (dispatch) => {
   const token = window.localStorage.getItem(TOKEN_KEY);
   if (token) {
     dispatch(setToken(token));
   }
 };
 
-
-export const register = (fullName, email, password) => async dispatch => {
+export const register = (fullName, email, password) => async (dispatch) => {
   const res = await fetch(`${apiBaseUrl}/users`, {
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
+    method: "post",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ fullName, email, password }),
   });
-
 
   if (res.ok) {
     const { token } = await res.json();
     window.localStorage.setItem(TOKEN_KEY, token);
     dispatch(setToken(token));
   }
-    
+};
 
-
-}
-
-
-export const login = (email, password) => async dispatch => {
+export const login = (email, password) => async (dispatch) => {
   const res = await fetch(`${apiBaseUrl}/users/token`, {
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
+    method: "post",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
   });
-
-//   if (!res.ok) throw res;
-
-//       const {
-//         token,
-//         user: { id },
-//       } = await res.json();
-
-//       this.setState(
-//         { authToken: token, currentUserId: id },
-//         () => {
-//           const { authToken, currentUserId } = this.state;
-//           dispatch(setToken(authToken, currentUserId));
-//         },
-//       );
 
   if (res.ok) {
     const { token } = await res.json();
@@ -64,9 +43,11 @@ export const login = (email, password) => async dispatch => {
 };
 
 export const logout = () => async (dispatch, getState) => {
-  const { authentication: { token } } = getState();
+  const {
+    authentication: { token },
+  } = getState();
   const response = await fetch(`${apiBaseUrl}/users/token`, {
-    method: 'delete',
+    method: "delete",
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -74,7 +55,7 @@ export const logout = () => async (dispatch, getState) => {
     window.localStorage.removeItem(TOKEN_KEY);
     dispatch(removeToken());
   }
-}
+};
 
 export default function reducer(state = {}, action) {
   switch (action.type) {
@@ -91,6 +72,7 @@ export default function reducer(state = {}, action) {
       return newState;
     }
 
-    default: return state;
+    default:
+      return state;
   }
 }
