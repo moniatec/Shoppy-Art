@@ -14,6 +14,26 @@ export const loadToken = () => async dispatch => {
   }
 };
 
+
+export const register = (fullName, email, password) => async dispatch => {
+  const res = await fetch(`${apiBaseUrl}/users`, {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fullName, email, password }),
+  });
+
+
+  if (res.ok) {
+    const { token } = await res.json();
+    window.localStorage.setItem(TOKEN_KEY, token);
+    dispatch(setToken(token));
+  }
+    
+
+
+}
+
+
 export const login = (email, password) => async dispatch => {
   const res = await fetch(`${apiBaseUrl}/users/token`, {
     method: 'post',

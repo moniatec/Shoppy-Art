@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../store/authentication';
+import { register } from '../store/authentication';
 
-class LoginPage extends Component {
+class RegistrationFrom extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class LoginPage extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state.email, this.state.password);
+    this.props.register(this.state.fullName, this.state.email, this.state.password);
   }
 
 
@@ -40,30 +40,30 @@ render() {
     }
     return (
         <main className="centered middled">
-            <h2>Log In</h2>
+            <h2>Sign Up</h2>
             <form onSubmit={this.handleSubmit}>
                 <div className="fullName">
                     <label htmlFor="lastName">Last Name</label>
                     <input type="text"
-                        placeholder="Full Name"
+                        placeholder="Enter Full Name"
                         value={this.state.fullName}
                         onChange={this.updateFullName} />
                 </div>
                 <div className="email">
                     <label htmlFor="email">Email</label>
                     <input type="text"
-                        placeholder="Email"
+                        placeholder="Enter Email"
                         value={this.state.email}
                         onChange={this.updateEmail} />
                 </div>
                 <div className="password">
                     <label htmlFor="password">Password</label>
                     <input type="password"
-                        placeholder="Passowrd"
+                        placeholder="Enter Passowrd"
                         value={this.state.password}
                         onChange={this.updatePassword} />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Create Account</button>
             </form>
         </main>
     );
@@ -78,7 +78,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (email, password) => dispatch(login(email, password))
+    register: (fullName, email, password) => dispatch(register(fullName, email, password))
   };
 };
 
@@ -86,5 +86,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(
-  LoginPage
+  RegistrationFrom
 );
