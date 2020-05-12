@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../store/authentication';
+import './RegistrationForm.css'
 
 class LoginPage extends Component {
   constructor(props) {
@@ -38,36 +39,43 @@ render() {
     if (this.props.token) {
       return <Redirect to="/" />;
     }
-    return (
-        <main className="centered middled">
-            <h2>Log In</h2>
-            <form onSubmit={this.handleSubmit}>
-                <div className="fullName">
-                    <label htmlFor="lastName">Last Name</label>
-                    <input type="text"
+return (
+    <main className="centered middled">
+        <div className="wrapper">
+            <div className="form-wrapper">
+                <h1>Log In</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="fullName">
+                        <label htmlFor="lastName">Last Name</label>
+                        <input type="text"
                         placeholder="Full Name"
                         value={this.state.fullName}
                         onChange={this.updateFullName} />
-                </div>
-                <div className="email">
-                    <label htmlFor="email">Email</label>
-                    <input type="text"
+                    </div>
+                    <div className="email">
+                        <label htmlFor="email">Email</label>
+                        <input type="text"
                         placeholder="Email"
                         value={this.state.email}
                         onChange={this.updateEmail} />
-                </div>
-                <div className="password">
-                    <label htmlFor="password">Password</label>
-                    <input type="password"
+                    </div>
+                    <div className="password">
+                        <label htmlFor="password">Password</label>
+                        <input type="password"
                         placeholder="Passowrd"
                         value={this.state.password}
                         onChange={this.updatePassword} />
-                </div>
-                <button type="submit">Login</button>
-            </form>
-        </main>
-    );
-  }
+                    </div>
+                    <div className="logIn">
+                        <button type="submit">Log In</button>
+                        <small>Create An Acount</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+     </main>
+);
+}
 }
 
 const mapStateToProps = state => {
