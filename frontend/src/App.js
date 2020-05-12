@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
+import RegistrationForm from './components/RegistrationForm';
 import { loadToken } from './store/authentication';
 
 
@@ -26,6 +27,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={RegistrationForm} />
           
         </Switch>
       </BrowserRouter>
@@ -36,7 +38,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // needLogin: !state.authentication.token,
+   
   };
 };
 

@@ -14,7 +14,7 @@
 | attribute name | data type |               details |
 | -------------- | :-------: | --------------------: |
 | id             |  integer  | not null, primary key |
-| userId         |  string   | not null, foreign key |
+| userId         |  integer  | not null, foreign key |
 | createdAt      | timestamp |              not null |
 | updatedAt      | timestamp |              not null |
 
@@ -26,7 +26,8 @@
 | productName    |  string   |              not null |
 | price          |  integer  |              not null |
 | description    |  string   |              not null |
-| orderId        |  integer  | not null, foreign key |
+| photoUrl       |  string   |              not null |
+| orderId        |  integer  |           foreign key |
 | createdAt      | timestamp |              not null |
 | updatedAt      | timestamp |              not null |
 
