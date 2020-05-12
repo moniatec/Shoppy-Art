@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { register } from '../store/authentication';
+import './RegistrationForm.css'
 
 class RegistrationFrom extends Component {
   constructor(props) {
@@ -40,10 +41,12 @@ render() {
     }
     return (
         <main className="centered middled">
-            <h2>Sign Up</h2>
-            <form onSubmit={this.handleSubmit}>
+          <div className="wrapper">
+            <div className="form-wrapper">
+              <h1>Create Account</h1>
+              <form onSubmit={this.handleSubmit}>
                 <div className="fullName">
-                    <label htmlFor="lastName">Last Name</label>
+                    <label htmlFor="fullName">Full Name</label>
                     <input type="text"
                         placeholder="Enter Full Name"
                         value={this.state.fullName}
@@ -63,8 +66,13 @@ render() {
                         value={this.state.password}
                         onChange={this.updatePassword} />
                 </div>
-                <button type="submit">Create Account</button>
-            </form>
+                <div className="createAccount">
+                  <button type="submit">Create Account</button>
+                  <small>Already Have an Account?</small>
+                </div>
+              </form>
+            </div>
+          </div>
         </main>
     );
   }
@@ -72,7 +80,7 @@ render() {
 
 const mapStateToProps = state => {
   return {
-     token: state.authentication.token, 
+    // token: state.authentication.token, 
   };
 };
 

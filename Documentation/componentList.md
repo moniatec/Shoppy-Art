@@ -1,5 +1,7 @@
 # Components needed
 
+* / (splash component)
+  * Splash
 * Sign up form
 * login form
 * nav bar component 
