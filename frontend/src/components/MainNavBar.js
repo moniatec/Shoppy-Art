@@ -25,7 +25,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    // flexGrow: 1,
+    flexGrow: 1,
+  },
+  navbar: {
+    background: theme.backgroundColor,
   },
 
   search: {
@@ -96,68 +99,68 @@ export default function MainNavBar(props) {
 
   return (
     <React.Fragment>
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <h2 className={classes.title}>Shoppy-Art</h2>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
+      {/* <div className={classes.root}> */}
+      <AppBar position="fixed" className={classes.navbar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <h2 className={classes.title}>Shoppy-Art</h2>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
-            <IconButton color="inherit">
-              <ShoppingCartIcon />
-            </IconButton>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={open}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My orders</MenuItem>
-            </Menu>
-            <LogoutButton token={props.token} />
-            {/* <Button color="inherit" href="/">
+              inputProps={{ "aria-label": "search" }}
+            />
+          </div>
+          <IconButton color="inherit">
+            <ShoppingCartIcon />
+          </IconButton>
+          <IconButton
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={open}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My orders</MenuItem>
+          </Menu>
+          <LogoutButton token={props.token} />
+          {/* <Button color="inherit" href="/">
               Logout
             </Button> */}
-          </Toolbar>
-        </AppBar>
-      </div>
+        </Toolbar>
+      </AppBar>
+      {/* </div> */}
     </React.Fragment>
   );
 }

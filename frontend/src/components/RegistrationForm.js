@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../store/authentication";
+import Home from "./Home";
 import "./RegistrationForm.css";
 
 class RegistrationFrom extends Component {
@@ -40,7 +41,7 @@ class RegistrationFrom extends Component {
 
   render() {
     if (this.props.token) {
-      return <Redirect to="/" />;
+      return <Redirect to="/Home" />;
     }
     return (
       <main className="centered middled">
@@ -89,7 +90,7 @@ class RegistrationFrom extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    //token: state.authentication.token,
+    token: state.authentication.token,
   };
 };
 
