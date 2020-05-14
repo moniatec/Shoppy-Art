@@ -1,18 +1,20 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import thunk from 'redux-thunk';
-import authentication from './authentication';
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import thunk from "redux-thunk";
+import authentication from "./authentication";
+import products from "./Product";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
-    authentication,
+  authentication,
+  products,
 });
 
-const configureStore = initialState => {
+const configureStore = (initialState) => {
   return createStore(
     reducer,
     initialState,
-    composeEnhancers(applyMiddleware(thunk)),
+    composeEnhancers(applyMiddleware(thunk))
   );
 };
 

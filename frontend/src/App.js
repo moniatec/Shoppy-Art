@@ -5,7 +5,9 @@ import Splash from "./components/Splash";
 import LoginPage from "./components/LoginPage";
 import RegistrationForm from "./components/RegistrationForm";
 import { loadToken } from "./store/authentication";
-import MainNavBar from "./components/MainNavBar";
+import Home from "./components/Home";
+import Products from "./components/Products";
+// import Product from "./components/Product";
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +32,8 @@ class App extends React.Component {
           <Route exact={true} path="/" component={Splash} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={RegistrationForm} />
-          <Route exact={true} path="/MainNavBar" component={MainNavBar} />
+          <Route exact={true} path="/home" component={Home} />
+          <Route exact={true} path="/products" component={Products} />
         </Switch>
       </BrowserRouter>
     );

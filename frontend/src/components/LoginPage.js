@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../store/authentication";
 import "./RegistrationForm.css";
-import MainNavBar from "./MainNavBar";
+import Home from "./Home";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class LoginPage extends Component {
 
   render() {
     if (this.props.token) {
-      return <Redirect to="/MainNavBar" />;
+      return <Redirect to="/Home" />;
     }
     return (
       <main className="centered middled">
