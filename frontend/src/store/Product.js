@@ -1,4 +1,4 @@
-import { apiBaseUrl } from "../config";
+import { api } from "../config";
 
 const LOAD = "shoppyArt/authentication/LOAD";
 const SET_CURRENT = "shoppyArt/authentication/SET_CURRENT";
@@ -10,7 +10,7 @@ export const getProduct = (id) => async (dispatch, getState) => {
   const {
     authentication: { token },
   } = getState();
-  const response = await fetch(`${apiBaseUrl}/product/${id}`, {
+  const response = await fetch(`${api}/product/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -26,7 +26,7 @@ export const getProducts = () => async (dispatch, getState) => {
   const {
     authentication: { token },
   } = getState();
-  const response = await fetch(`${apiBaseUrl}/products`, {
+  const response = await fetch(`${api}/products`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

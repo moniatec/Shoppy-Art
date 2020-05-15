@@ -1,4 +1,4 @@
-import { apiBaseUrl } from "../config";
+import { api } from "../config";
 const LOAD = "shoppyArt/authentication/LOAD";
 
 export const load = (list) => ({ type: LOAD, list });
@@ -7,7 +7,7 @@ export const createOrder = (data) => async (dispatch, getState) => {
   const {
     authentication: { token },
   } = getState();
-  const response = await fetch(`${apiBaseUrl}/orders`, {
+  const response = await fetch(`${api}/orders`, {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export const getOrder = () => async (dispatch, getState) => {
   const {
     authentication: { token },
   } = getState();
-  const response = await fetch(`${apiBaseUrl}/orders`, {
+  const response = await fetch(`${api}/orders`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

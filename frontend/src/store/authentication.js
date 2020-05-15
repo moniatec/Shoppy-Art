@@ -1,4 +1,4 @@
-import { apiBaseUrl } from "../config";
+import { api } from "../config";
 
 const TOKEN_KEY = "shoppyArt/authentication/token";
 const SET_TOKEN = "shoppyArt/authentication/SET_TOKEN";
@@ -15,7 +15,7 @@ export const loadToken = () => async (dispatch) => {
 };
 
 export const register = (fullName, email, password) => async (dispatch) => {
-  const res = await fetch(`${apiBaseUrl}/users`, {
+  const res = await fetch(`${api}/users`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ fullName, email, password }),
@@ -29,7 +29,7 @@ export const register = (fullName, email, password) => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-  const res = await fetch(`${apiBaseUrl}/users/token`, {
+  const res = await fetch(`${api}/users/token`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -46,7 +46,7 @@ export const logout = () => async (dispatch, getState) => {
   // const {
   //   authentication: { token },
   // } = getState();
-  // const response = await fetch(`${apiBaseUrl}/users/token`, {
+  // const response = await fetch(`${api}/users/token`, {
   //   method: "delete",
   //   headers: { Authorization: `Bearer ${token}` },
   // });
