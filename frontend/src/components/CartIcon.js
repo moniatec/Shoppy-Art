@@ -11,7 +11,7 @@ const CartIcon = (props) => {
   const ADDING_TO_CART = "shoppyArt/authentication/ADDING_TO_CART";
   const [cartProducts, setCartProducts] = useState(0);
   const [disableBtn, setDisableBtn] = useState(false);
-  console.log(props.id);
+  console.log(props);
   // const handleClick = () => {
   //   console.log(cartProducts);
   //   setCartProducts(cartProducts + 1);
