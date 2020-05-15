@@ -7,7 +7,9 @@ import RegistrationForm from "./components/RegistrationForm";
 import { loadToken } from "./store/authentication";
 import Home from "./components/Home";
 import Products from "./components/Products";
-// import Product from "./components/Product";
+import Cart from "./components/Cart";
+import CartIcon from "./components/CartIcon";
+import { persistStore, autoRehydrate } from "redux-persist";
 
 class App extends React.Component {
   constructor(props) {
@@ -34,6 +36,8 @@ class App extends React.Component {
           <Route path="/signup" component={RegistrationForm} />
           <Route exact={true} path="/home" component={Home} />
           <Route exact={true} path="/products" component={Products} />
+          <Route exact={true} path="/cart" component={Cart} />
+          <Route exact={true} path="/cartI" component={CartIcon} />
         </Switch>
       </BrowserRouter>
     );

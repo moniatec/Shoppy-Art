@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import Badge from "@material-ui/core/Badge";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
@@ -14,6 +15,12 @@ import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
+import { connect } from "react-redux";
+import { addToCart } from "../store/CartActions";
+import { getNumbers } from "./getActions";
+import Cart from "./Cart";
+import CartIcon from "./CartIcon";
+import CartMenu from "./CartMenu";
 
 const { withStyles } = require("@material-ui/core/styles");
 
@@ -78,7 +85,8 @@ const styles = {
   },
 };
 
-export default function MainNavBar(props) {
+function MainNavBar(props) {
+  console.log(props);
   const classes = useStyles();
   const StyledSlide = withStyles(styles);
   const [auth, setAuth] = React.useState(true);
@@ -89,6 +97,11 @@ export default function MainNavBar(props) {
     setAuth(event.target.checked);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    props.history.push("/cart");
+  };
+
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -97,6 +110,9 @@ export default function MainNavBar(props) {
     setAnchorEl(null);
   };
 
+  useEffect(() => {
+    getNumbers();
+  }, []);
   return (
     <React.Fragment>
       {/* <div className={classes.root}> */}
@@ -124,8 +140,13 @@ export default function MainNavBar(props) {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <IconButton color="inherit">
-            <ShoppingCartIcon />
+
+          {/* <CartMenu>{props.cartProps}</CartMenu> */}
+
+          <IconButton color="inherit" onClick={handleClick}>
+            <Badge badgeContent={props.cartProps} color="secondary">
+              <ShoppingCartIcon>{/* <Cart {...props} /> */}</ShoppingCartIcon>
+            </Badge>
           </IconButton>
           <IconButton
             aria-label="account of current user"
@@ -155,12 +176,18 @@ export default function MainNavBar(props) {
             <MenuItem onClick={handleClose}>My orders</MenuItem>
           </Menu>
           <LogoutButton token={props.token} />
-          {/* <Button color="inherit" href="/">
-              Logout
-            </Button> */}
         </Toolbar>
       </AppBar>
-      {/* </div> */}
     </React.Fragment>
   );
 }
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    cartProps: state.cartReducer.cartProducts,
+  };
+};
+
+// export default connect(mapStateToProps, { addToCart })(MainNavBar);
+export default connect(mapStateToProps, { getNumbers })(MainNavBar);

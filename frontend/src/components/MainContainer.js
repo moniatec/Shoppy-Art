@@ -22,9 +22,11 @@ const MainContainer = (props) => {
     >
       {props.products.map((product) => (
         <Grid item spacing={3}>
-          <ProductCard
+          <ProductCard //pass product
             key={product.id}
+            product={product}
             title={product.id}
+            id={product.id}
             productName={product.productName}
             image={product.photoUrl}
             price={product.price}
