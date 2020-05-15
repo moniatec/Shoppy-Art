@@ -1,32 +1,31 @@
 import { apiBaseUrl } from "../config";
-
 const LOAD = "shoppyArt/authentication/LOAD";
-const SET_CURRENT = "shoppyArt/authentication/SET_CURRENT";
 
 export const load = (list) => ({ type: LOAD, list });
-export const setCurrent = (current) => ({ type: SET_CURRENT, current });
 
-export const getProduct = (id) => async (dispatch, getState) => {
+export const createOrder = (data) => async (dispatch, getState) => {
   const {
     authentication: { token },
   } = getState();
-  const response = await fetch(`${apiBaseUrl}/product/${id}`, {
+  const response = await fetch(`${apiBaseUrl}/orders`, {
+    method: "post",
     headers: {
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify(data),
   });
 
   if (response.ok) {
-    const current = await response.json();
-    dispatch(setCurrent(current));
+    dispatch(getOrder());
   }
 };
 
-export const getProducts = () => async (dispatch, getState) => {
+export const getOrder = () => async (dispatch, getState) => {
   const {
     authentication: { token },
   } = getState();
-  const response = await fetch(`${apiBaseUrl}/products`, {
+  const response = await fetch(`${apiBaseUrl}/orders`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -34,11 +33,11 @@ export const getProducts = () => async (dispatch, getState) => {
 
   if (response.ok) {
     const list = await response.json();
-    dispatch(load(list.products));
+    dispatch(load(list));
   }
 };
 
-export default function reducer(state = { list: [] }, action) {
+export default function reducer(state = { types: [] }, action) {
   switch (action.type) {
     case LOAD: {
       return {

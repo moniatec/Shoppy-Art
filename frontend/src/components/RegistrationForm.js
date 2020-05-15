@@ -41,7 +41,7 @@ class RegistrationFrom extends Component {
 
   render() {
     if (this.props.token) {
-      return <Redirect to="/Home" />;
+      return <Redirect to="/home" />;
     }
     return (
       <main className="centered middled">

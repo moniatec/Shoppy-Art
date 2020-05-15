@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -13,14 +13,16 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { spacing } from "@material-ui/system";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import ProductModal from "./ProductModal";
+import { CartActions } from "../store/CartActions";
+import CartIcon from "./CartIcon";
 const useStyles = makeStyles((theme) => ({
   productCard: {
     // maxWidth: "500px",
     margin: "100px 0",
   },
   media: {
-    height: 500,
-    width: 500,
+    height: 300,
+    width: 300,
     paddingTop: "56.25%", // 16:9
   },
   text: {
@@ -29,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cart: {
     fontsize: 200,
-    marginLeft: "auto",
+    marginLeft: 350,
   },
   title: {
     // marginLeft: "auto",
@@ -38,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCard = (props) => {
   const classes = useStyles();
-
+  console.log(props);
   return (
     <Card spacing={10} className={classes.productCard}>
       <CardMedia className={classes.media} image={props.image}></CardMedia>
@@ -48,9 +50,8 @@ const ProductCard = (props) => {
           <div className={classes.title}>{props.productName}</div>
           <div className={classes.text}>${props.price}</div>
         </div>
-        <IconButton className={classes.cart}>
-          <ShoppingCartIcon />
-        </IconButton>
+        <CartIcon id={props.id} price={props.price} />
+
         <ProductModal
           image={props.image}
           productName={props.productName}
