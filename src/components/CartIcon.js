@@ -12,6 +12,7 @@ const CartIcon = (props) => {
   const [cartProducts, setCartProducts] = useState(0);
   const [disableBtn, setDisableBtn] = useState(false);
   console.log(props);
+
   // const handleClick = () => {
   //   console.log(cartProducts);
   //   setCartProducts(cartProducts + 1);
@@ -22,7 +23,8 @@ const CartIcon = (props) => {
       onClick={() => {
         props.addToCart(props.id, props.price);
         setDisableBtn(true);
-        window.localStorage.setItem(ADDING_TO_CART, props[props.id]);
+        console.log(props);
+        // window.localStorage.setItem(ADDING_TO_CART, props.id);
       }}
       disabled={disableBtn}
     >
