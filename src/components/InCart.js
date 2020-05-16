@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   price: {
+    // alignItems: "right",
     marginLeft: 170,
   },
 }));
@@ -59,9 +60,11 @@ const InCart = (props) => {
           <Typography color="textSecondary">{props.description}</Typography>
         </CardContent>
       </div>
-      <Typography className={classes.price} component="h5" variant="h5">
-        ${props.price}
-      </Typography>
+      <div>
+        <Typography className={classes.price} component="h5" variant="h5">
+          ${props.price}
+        </Typography>
+      </div>
     </Card>
   );
 };

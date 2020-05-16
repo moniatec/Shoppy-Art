@@ -10,23 +10,32 @@ import { addToCart } from "../store/CartActions";
 import { Grid } from "@material-ui/core";
 import InCart from "./InCart";
 import ProductCard from "./ProductCard";
+import TextField from "@material-ui/core/TextField";
+import CartSidePanel from "./CartSidePanel";
 
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   total: {
-    marginLeft: 680,
+    marginTop: 0,
+    marginLeft: 650,
   },
   sale: {
-    marginLeft: 250,
+    marginLeft: 40,
   },
   container: {
-    marginTop: 100,
+    marginTop: 50,
     marginLeft: 20,
   },
-  // column2: {
-  //   width: 200,
-  //   height: 200,
+
+  shoppingCart: {
+    marginTop: 80,
+    marginLeft: 20,
+    marginBottom: 40,
+  },
+  // panel: {
+  //   marginBottom: 100,
+  //   marginLeft: 200,
   // },
 }));
 
@@ -50,6 +59,7 @@ const Cart = (props) => {
 
   // const productsArray = [...Object.values(props.cartProps), ...productsStorage];
   let total = 0;
+  const productsNumb = productsArray.filter((product) => product.inCart).length;
   productsArray
     .filter((product) => product.inCart)
     .map((product) => {
@@ -70,6 +80,15 @@ const Cart = (props) => {
           justify="center"
           alignItems="flex-start"
         >
+          {/* <Grid item spacing={3}>
+            <Typography
+              className={classes.shoppingCart}
+              variant="h6"
+              color="textPrimary"
+            >
+              You have {`${productsNumb}`} Products on your Shopping Cart
+            </Typography>
+          </Grid> */}
           <Grid
             className={classes.container}
             container
@@ -78,27 +97,48 @@ const Cart = (props) => {
             justify="center"
             alignItems="flex-start"
           >
-            {productsArray
-              .filter((product) => product.inCart)
-              .map((product) => (
-                <Grid item spacing={3}>
-                  {" "}
-                  <InCart //pass product
-                    key={product.id}
-                    product={product}
-                    title={product.id}
-                    id={product.id}
-                    productName={product.productName}
-                    image={product.image}
-                    price={product.price}
-                    description={product.description}
-                  />
+            <Grid item spacing={3}>
+              <Typography
+                className={classes.shoppingCart}
+                variant="h4"
+                color="textPrimary"
+              >
+                You have {`${productsNumb}`} Products on your Shopping Cart
+              </Typography>
+
+              <Grid
+                container
+                spacing={10}
+                direction="row"
+                // justify="center"
+                alignItems="flex-start"
+              >
+                {productsArray
+                  .filter((product) => product.inCart)
+                  .map((product) => (
+                    <Grid item spacing={3}>
+                      {" "}
+                      <InCart //pass product
+                        key={product.id}
+                        product={product}
+                        title={product.id}
+                        id={product.id}
+                        productName={product.productName}
+                        image={product.image}
+                        price={product.price}
+                        description={product.description}
+                      />
+                    </Grid>
+                  ))}
+                <Grid item className={classes.panel}>
+                  <CartSidePanel />
                 </Grid>
-              ))}
+              </Grid>
+            </Grid>
             <Grid item spacing={3}>
               <Typography
                 className={classes.total}
-                component="h5"
+                variant="h5"
                 color="textSecondary"
               >
                 Subtotal:{total}
@@ -128,7 +168,9 @@ const Cart = (props) => {
               />
             </Grid>
           ))}
+          {/* <CartSidePanel /> */}
         </Grid>
+        {/* <TextField id="standard-basic" label="Standard" /> */}
       </Theme>
     </>
   );

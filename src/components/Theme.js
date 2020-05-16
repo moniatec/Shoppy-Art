@@ -3,10 +3,11 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 
 const theme = createMuiTheme({
   backgroundColor: "#6fb3c2",
-  fontFamily: "Verdana",
-  fontweith: "100",
+  // fontFamily: "Verdana",
+  // fontweith: "100",
   typography: {
-    fontFamily: "Verdana",
+    fontWeight: "fontWeightBold",
+    fontFamily: "oblique",
   },
 });
 console.log(theme);
