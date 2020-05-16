@@ -90,7 +90,16 @@ export const addToCart = (id, price) => {
     console.log("add");
     console.log("product", id);
     console.log("product", price);
-    // window.localStorage.setItem(ADDING_TO_CART, product);
+    let productsId = [];
+    let productsIdJson = window.localStorage.getItem(ADDING_TO_CART);
+    if (productsIdJson) {
+      productsId = JSON.parse(productsIdJson);
+    }
+    let newProducts = [...productsId];
+    if (productsId.indexOf(id) === -1) {
+      newProducts = [...newProducts, id];
+    }
+    window.localStorage.setItem(ADDING_TO_CART, JSON.stringify(newProducts));
     dispatch({
       type: ADD_TO_CART,
       payload: id,
