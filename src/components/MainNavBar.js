@@ -20,7 +20,6 @@ import { addToCart } from "../store/CartActions";
 import { getNumbers } from "./getActions";
 import Cart from "./Cart";
 import CartIcon from "./CartIcon";
-import CartMenu from "./CartMenu";
 
 const { withStyles } = require("@material-ui/core/styles");
 
