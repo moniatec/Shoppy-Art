@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../store/authentication";
 import "./RegistrationForm.css";
 import Home from "./Home";
+import Link from "@material-ui/core/Link";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class LoginPage extends Component {
             <h1>Log In</h1>
             <form onSubmit={this.handleSubmit}>
               <div className="fullName">
-                <label htmlFor="lastName">Last Name</label>
+                <label htmlFor="lastName">Full Name</label>
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -74,7 +75,9 @@ class LoginPage extends Component {
               </div>
               <div className="logIn">
                 <button type="submit">Log In</button>
-                <small>Create An Acount</small>
+                <Link href="/signup">
+                  <small>Create An Acount</small>
+                </Link>
               </div>
             </form>
           </div>

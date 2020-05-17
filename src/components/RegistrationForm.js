@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { register } from "../store/authentication";
 import Home from "./Home";
 import "./RegistrationForm.css";
+import Link from "@material-ui/core/Link";
 
 class RegistrationFrom extends Component {
   constructor(props) {
@@ -78,7 +79,10 @@ class RegistrationFrom extends Component {
               </div>
               <div className="createAccount">
                 <button type="submit">Create Account</button>
-                <small>Already Have an Account?</small>
+
+                <Link href="/login">
+                  <small>Already Have an Account?</small>
+                </Link>
               </div>
             </form>
           </div>

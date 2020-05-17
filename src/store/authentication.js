@@ -42,15 +42,39 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const logout = () => async (dispatch, getState) => {
-  // const {
-  //   authentication: { token },
-  // } = getState();
-  // const response = await fetch(`${apiBaseUrl}/users/token`, {
-  //   method: "delete",
-  //   headers: { Authorization: `Bearer ${token}` },
-  // });
+export const loginDemo = () => async (dispatch) => {
+  try {
+    const res = await fetch(`${apiBaseUrl}/users/token`, {
+      method: "POST",
+      body: JSON.stringify({
+        email: "demoUser@demo.com",
+        password: "Demo User",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      throw res;
+    }
+    const { token } = await res.json();
+    console.log(token);
+    // Stores fullName, access_token, and user_id in localStorage:
+    window.localStorage.setItem(TOKEN_KEY, token);
+    // localStorage.setItem("ShoppyArt_CURRENT_USER_FULLNAME", name);
+    // localStorage.setItem("ShoppyArt_ACCESS_TOKEN", token);
+    // localStorage.setItem("ShoppyArt_CURRENT_USER_ID", id);
+    // localStorage.setItem("ShoppyArt_CURRENT_CHANNEL_ID", 1);
 
+    // Redirects user to main channel page
+    // window.location.href = "/home";
+    dispatch(setToken(token));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const logout = () => async (dispatch, getState) => {
   window.localStorage.removeItem(TOKEN_KEY);
   dispatch(removeToken());
 };

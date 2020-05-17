@@ -4,17 +4,18 @@ import { Router, BrowserRouter } from "react-router-dom";
 import SplashNavBar from "./SplashNavBar";
 import { CssBaseline } from "@material-ui/core";
 import Theme from "./Theme";
+import SplashContainer from "./SplashContainer";
 
-class Home extends Component {
-  render() {
-    return (
-      <>
-        <CssBaseline />
-        <Theme>
-          <SplashNavBar />
-        </Theme>
-      </>
-    );
-  }
-}
-export default Home;
+const Splash = (props) => {
+  console.log(props);
+  return (
+    <>
+      <CssBaseline />
+      <Theme>
+        <SplashNavBar />
+        <SplashContainer {...props} />
+      </Theme>
+    </>
+  );
+};
+export default Splash;
