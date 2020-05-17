@@ -12,16 +12,17 @@ import InCart from "./InCart";
 import ProductCard from "./ProductCard";
 import TextField from "@material-ui/core/TextField";
 import CartSidePanel from "./CartSidePanel";
-
+import "./MainPage.css";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   total: {
-    marginTop: 0,
+    // marginTop: 0,
     marginLeft: 650,
   },
   sale: {
     marginLeft: 40,
+    marginTop: 150,
   },
   container: {
     marginTop: 50,
@@ -30,13 +31,14 @@ const useStyles = makeStyles((theme) => ({
 
   shoppingCart: {
     marginTop: 80,
-    marginLeft: 20,
+    marginLeft: 250,
     marginBottom: 40,
   },
-  // panel: {
-  //   marginBottom: 100,
-  //   marginLeft: 200,
-  // },
+  panel: {
+    // position: "relative",
+    // marginBottom: 600,
+    // marginLeft: 200,
+  },
 }));
 
 const Cart = (props) => {
@@ -80,15 +82,6 @@ const Cart = (props) => {
           justify="center"
           alignItems="flex-start"
         >
-          {/* <Grid item spacing={3}>
-            <Typography
-              className={classes.shoppingCart}
-              variant="h6"
-              color="textPrimary"
-            >
-              You have {`${productsNumb}`} Products on your Shopping Cart
-            </Typography>
-          </Grid> */}
           <Grid
             className={classes.container}
             container
@@ -97,7 +90,7 @@ const Cart = (props) => {
             justify="center"
             alignItems="flex-start"
           >
-            <Grid item spacing={3}>
+            <Grid item spacing={3} justify="center">
               <Typography
                 className={classes.shoppingCart}
                 variant="h4"
@@ -110,32 +103,70 @@ const Cart = (props) => {
                 container
                 spacing={10}
                 direction="row"
-                // justify="center"
+                justify="center"
                 alignItems="flex-start"
               >
-                {productsArray
-                  .filter((product) => product.inCart)
-                  .map((product) => (
-                    <Grid item spacing={3}>
-                      {" "}
-                      <InCart //pass product
-                        key={product.id}
-                        product={product}
-                        title={product.id}
-                        id={product.id}
-                        productName={product.productName}
-                        image={product.image}
-                        price={product.price}
-                        description={product.description}
-                      />
-                    </Grid>
-                  ))}
-                <Grid item className={classes.panel}>
-                  <CartSidePanel />
+                <Grid
+                  item
+                  // spacing={3}
+                  container
+                  spacing={10}
+                  justify="center"
+                  // direction="row"
+                  // alignItems="flex-start"
+                >
+                  {productsArray
+                    .filter((product) => product.inCart)
+                    .map((product) => (
+                      <Grid item spacing={3}>
+                        {" "}
+                        <InCart //pass product
+                          key={product.id}
+                          product={product}
+                          title={product.id}
+                          id={product.id}
+                          productName={product.productName}
+                          image={product.image}
+                          price={product.price}
+                          description={product.description}
+                        />
+                      </Grid>
+                    ))}
+                </Grid>
+                <Grid
+                  item
+                  // spacing={3}
+                  container
+                  spacing={10}
+                  justify="center"
+                  direction="row"
+                  alignItems="flex-start"
+                >
+                  <Grid item spacing={3}>
+                    <Typography
+                      className={classes.total}
+                      variant="h5"
+                      color="textSecondary"
+                    >
+                      Subtotal:{total}
+                    </Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    // spacing={3}
+                    // container
+                    // // spacing={10}
+                    // direction="row"
+                    // alignItems="flex-start"
+                    className={classes.panel}
+                    id="panel"
+                  >
+                    <CartSidePanel />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item spacing={3}>
+            {/* <Grid item spacing={3}>
               <Typography
                 className={classes.total}
                 variant="h5"
@@ -143,8 +174,8 @@ const Cart = (props) => {
               >
                 Subtotal:{total}
               </Typography>
-            </Grid>
-            <Grid item spacing={3}>
+            </Grid> */}
+            <Grid item spacing={3} justify="center" container>
               <Typography
                 className={classes.sale}
                 variant="h4"
@@ -155,7 +186,7 @@ const Cart = (props) => {
             </Grid>
           </Grid>
           {productsForSale.map((product) => (
-            <Grid item className={classes.column2}>
+            <Grid item className={classes.column2} justify="center">
               <ProductCard //pass product
                 key={product.id}
                 product={product}

@@ -12,7 +12,7 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    width: "800px",
+    width: "1000px",
   },
   details: {
     display: "flex",
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
   price: {
     // alignItems: "right",
-    marginLeft: 170,
+    marginLeft: 370,
   },
 }));
 
