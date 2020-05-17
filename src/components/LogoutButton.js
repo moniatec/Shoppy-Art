@@ -6,11 +6,11 @@ import Button from "@material-ui/core/Button";
 
 const LogoutButton = (props) =>
   props.loggedOut ? (
-    <Redirect to="/login" />
+    <Redirect to="/" />
   ) : (
     <div id="logout-button-holder">
       <Button color="inherit" onClick={props.logout}>
-        Logout
+        Log Out
       </Button>
     </div>
   );

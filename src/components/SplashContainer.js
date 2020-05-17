@@ -16,7 +16,10 @@ const useStyles = makeStyles({
     marginLeft: 200,
   },
   title1: {
-    marginLeft: 250,
+    marginLeft: 400,
+  },
+  art: {
+    color: "#6fb3c2",
   },
   title2: {
     marginLeft: 450,
@@ -46,11 +49,11 @@ const SplashContainer = (props) => {
         <div className={classes.root}>
           <Typography
             className={classes.title1}
-            variant="h1"
+            variant="h2"
             component="h2"
             gutterBottom
           >
-            Welcome to Shoppy-Art
+            Welcome to <b className={classes.art}> Shoppy-Art </b>
           </Typography>
           <Typography className={classes.title2} variant="h2" gutterBottom>
             Find things you'll love.

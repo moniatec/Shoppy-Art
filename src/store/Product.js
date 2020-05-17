@@ -23,13 +23,13 @@ export const getProduct = (id) => async (dispatch, getState) => {
 };
 
 export const getProducts = () => async (dispatch, getState) => {
-  const {
-    authentication: { token },
-  } = getState();
+  // const {
+  //   authentication: { token },
+  // } = getState();
   const response = await fetch(`${apiBaseUrl}/products`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    // headers: {
+    //   Authorization: `Bearer ${token}`,
+    // },
   });
 
   if (response.ok) {

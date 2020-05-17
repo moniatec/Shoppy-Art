@@ -79,7 +79,7 @@ export default function Splash() {
             Sign Up
           </Button>
           <Button color="inherit" href="/login">
-            Login
+            Log In
           </Button>
           <LoginDemo>Demo</LoginDemo>
           {/* <Button color="inherit" href="/home">
