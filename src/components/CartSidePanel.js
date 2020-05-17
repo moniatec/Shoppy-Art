@@ -47,6 +47,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
+import CheckoutBtn from "./CheckoutBtn";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -162,7 +163,7 @@ export default function CustomizedMenus() {
         <div>
           <StyledMenuItem>
             <ListItemIcon>
-              <Button
+              {/* <Button
                 aria-controls="customized-menu"
                 aria-haspopup="true"
                 variant="contained"
@@ -170,7 +171,8 @@ export default function CustomizedMenus() {
                 onClick={handleClickCheckout}
               >
                 Submit
-              </Button>
+              </Button> */}
+              <CheckoutBtn />
             </ListItemIcon>
           </StyledMenuItem>
         </div>

@@ -71,6 +71,9 @@ export default function Splash() {
           <Button color="inherit" href="/login">
             Login
           </Button>
+          <Button color="inherit" href="/home">
+            Demo
+          </Button>
         </Toolbar>
       </AppBar>
       {/* </div> */}
