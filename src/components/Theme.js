@@ -10,7 +10,6 @@ const theme = createMuiTheme({
     fontFamily: "oblique",
   },
 });
-console.log(theme);
 const Theme = (props) => {
   return <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
 };

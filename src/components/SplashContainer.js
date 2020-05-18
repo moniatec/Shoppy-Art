@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -35,6 +35,7 @@ const SplashContainer = (props) => {
       props.getProducts();
     })();
   }, []);
+  console.log(props);
   const classes = useStyles();
   return (
     <Grid

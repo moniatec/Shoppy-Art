@@ -68,18 +68,9 @@ export default function Splash() {
           <Button color="inherit" href="/login">
             Log In
           </Button>
-          <LoginDemo>Demo</LoginDemo>
-          {/* <Button color="inherit" href="/home">
-            <LoginDemo>Demo</LoginDemo>
-          </Button> */}
+          {/* <LoginDemo>Demo</LoginDemo> */}
         </Toolbar>
       </AppBar>
-      {/* </div> */}
-      {/* <Container>
-        <Box my={2}>
-          <div>{<img src="/images/background1.jpg" />}</div>
-        </Box>
-      </Container> */}
     </React.Fragment>
   );
 }

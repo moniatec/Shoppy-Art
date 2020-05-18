@@ -84,12 +84,13 @@ const initialState = {
   },
 };
 const ADDING_TO_CART = "shoppyArt/authentication/ADDING_TO_CART";
+const REMOVE_FROM_CART = "shoppyArt/authentication/REMOVE_FROM_CART";
 //add cart action
 export const addToCart = (id, price) => {
   return (dispatch) => {
-    console.log("add");
-    console.log("product", id);
-    console.log("product", price);
+    // console.log("add");
+    // console.log("product", id);
+    // console.log("product", price);
     let productsId = [];
     let productsIdJson = window.localStorage.getItem(ADDING_TO_CART);
     if (productsIdJson) {
@@ -104,6 +105,13 @@ export const addToCart = (id, price) => {
       type: ADD_TO_CART,
       payload: id,
     });
+  };
+};
+
+export const removeCart = (id, price) => {
+  let productToRemove = window.localStorage.getItem(REMOVE_FROM_CART);
+  return (dispatch) => {
+    window.localStorage.removeItem(REMOVE_FROM_CART);
   };
 };
 

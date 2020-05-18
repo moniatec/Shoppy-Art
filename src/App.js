@@ -33,10 +33,9 @@ class App extends React.Component {
           <Route exact={true} path="/" component={Splash} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={RegistrationForm} />
-          <Route exact={true} path="/home" component={Home} />
-          <Route exact={true} path="/products" component={Products} />
-          <Route exact={true} path="/cart" component={Cart} />
-          <Route exact={true} path="/cartI" component={CartIcon} />
+          <Route path="/home" component={Home} />
+          <Route path="/products" component={Products} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </BrowserRouter>
     );
