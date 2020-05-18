@@ -9,9 +9,9 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: "",
-      email: "",
-      password: "",
+      fullName: "Demo User",
+      email: "demoUser@demo.com",
+      password: "shoppy",
       authentication: null,
       currentUserId: null,
     };
