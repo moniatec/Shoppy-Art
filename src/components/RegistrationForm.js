@@ -47,7 +47,7 @@ class RegistrationFrom extends Component {
       <main className="centered middled">
         <div className="wrapper">
           <div className="form-wrapper">
-            <h1>Create Account</h1>
+            <h1>Sign Up</h1>
             <form onSubmit={this.handleSubmit}>
               <div className="fullName">
                 <label htmlFor="fullName">Full Name</label>
