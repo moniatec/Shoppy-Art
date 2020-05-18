@@ -3,6 +3,7 @@ import { apiBaseUrl } from "../config";
 const TOKEN_KEY = "shoppyArt/authentication/token";
 const SET_TOKEN = "shoppyArt/authentication/SET_TOKEN";
 const REMOVE_TOKEN = "shoppyArt/authentication/REMOVE_TOKEN";
+const ADDING_TO_CART = "shoppyArt/authentication/ADDING_TO_CART";
 
 export const removeToken = (token) => ({ type: REMOVE_TOKEN });
 export const setToken = (token) => ({ type: SET_TOKEN, token });
@@ -70,6 +71,7 @@ export const loginDemo = () => async (dispatch) => {
 
 export const logout = () => async (dispatch, getState) => {
   window.localStorage.removeItem(TOKEN_KEY);
+  window.localStorage.removeItem(ADDING_TO_CART);
   dispatch(removeToken());
 };
 

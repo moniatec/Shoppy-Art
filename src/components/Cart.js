@@ -54,8 +54,6 @@ const Cart = (props) => {
     <>
       <CssBaseline />
       <Theme>
-        {/* //   <h1>You have the following products on your cart</h1>
-    //   {/* <div>{cartReducer}</div> */}
         <MainNavBar />
         <Grid
           container
