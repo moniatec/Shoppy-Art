@@ -35,7 +35,7 @@ export default function Splash() {
 
   return (
     <React.Fragment>
-      <AppBar position="static" className={classes.navbar}>
+      <AppBar position="fixed" className={classes.navbar}>
         <Toolbar>
           <IconButton
             edge="start"
