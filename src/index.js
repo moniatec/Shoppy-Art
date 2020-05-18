@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-import { persistStore, autoRehydrate } from "redux-persist";
+import { persistStore } from "redux-persist";
 
 const store = configureStore();
 persistStore(store, {}, () => {});

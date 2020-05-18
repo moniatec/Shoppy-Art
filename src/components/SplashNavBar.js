@@ -6,11 +6,7 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
-import Slide from "@material-ui/core/Container";
 import LoginDemo from "./LoginDemo";
-const { withStyles } = require("@material-ui/core/styles");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,20 +30,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const styles = {
-  image: {
-    height: 400,
-    width: 800,
-  },
-};
-
 export default function Splash() {
   const classes = useStyles();
-  const StyledSlide = withStyles(styles);
 
   return (
     <React.Fragment>
-      {/* <div className={classes.root}> */}
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
           <IconButton

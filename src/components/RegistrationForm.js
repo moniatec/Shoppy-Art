@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../store/authentication";
-import Home from "./Home";
 import "./RegistrationForm.css";
 import Link from "@material-ui/core/Link";
 

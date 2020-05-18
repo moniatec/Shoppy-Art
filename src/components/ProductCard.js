@@ -1,30 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-
-import { spacing } from "@material-ui/system";
-import VisibilityIcon from "@material-ui/icons/Visibility";
 import ProductModal from "./ProductModal";
-import { CartActions } from "../store/CartActions";
 import CartIcon from "./CartIcon";
-import Rating from "@material-ui/lab/Rating";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import { withStyles } from "@material-ui/core/styles";
-
-import Box from "@material-ui/core/Box";
-
-// const StyledRating = withStyles({
-//   iconFilled: {
-//     color: "#ff6d75",
-//   },
-//   iconHover: {
-//     color: "#ff3d47",
-//   },
-// })(Rating);
 
 const useStyles = makeStyles((theme) => ({
   productCard: {
@@ -52,18 +33,10 @@ const useStyles = makeStyles((theme) => ({
   // price: {
   //   marginLeft: 100,
   // },
-  // rate: {
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   "& > * + *": {
-  //     marginTop: theme.spacing(1),
-  //   },
-  // },
 }));
 
 const ProductCard = (props) => {
   const classes = useStyles();
-  console.log(props);
   return (
     <Card className={classes.productCard}>
       <CardMedia className={classes.media} image={props.image}></CardMedia>
@@ -81,17 +54,7 @@ const ProductCard = (props) => {
           price={props.price}
           description={props.description}
         />
-        <div className={classes.rate}>
-          {/* <Box component="fieldset" mb={3} borderColor="transparent"> */}
-          {/* <Rating
-              name="customized-empty"
-              defaultValue={2}
-              precision={0.5}
-              emptyIcon={<StarBorderIcon fontSize="inherit" />}
-            /> */}
-
-          {/* </Box> */}
-        </div>
+        <div className={classes.rate}></div>
       </CardActions>
     </Card>
   );

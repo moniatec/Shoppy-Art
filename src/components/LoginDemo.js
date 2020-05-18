@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { loginDemo } from "../store/authentication";
 import Button from "@material-ui/core/Button";
 
 const LoginDemo = (props) => {
-  console.log(props);
   //   if (props.token) {
   //     return <Redirect to="/home" />;
   //   }

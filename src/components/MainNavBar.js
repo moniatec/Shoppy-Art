@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
-// import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Badge from "@material-ui/core/Badge";
 import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -16,12 +13,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
-import { addToCart } from "../store/CartActions";
 import { getNumbers } from "./getActions";
-import Cart from "./Cart";
-import CartIcon from "./CartIcon";
-
-const { withStyles } = require("@material-ui/core/styles");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
+
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -77,24 +69,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const styles = {
-  image: {
-    height: 400,
-    width: 800,
-  },
-};
-
 function MainNavBar(props) {
-  console.log(props);
   const classes = useStyles();
-  const StyledSlide = withStyles(styles);
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -114,7 +92,6 @@ function MainNavBar(props) {
   }, []);
   return (
     <React.Fragment>
-      {/* <div className={classes.root}> */}
       <AppBar position="fixed" className={classes.navbar}>
         <Toolbar>
           <IconButton
@@ -140,11 +117,9 @@ function MainNavBar(props) {
             />
           </div>
 
-          {/* <CartMenu>{props.cartProps}</CartMenu> */}
-
           <IconButton color="inherit" onClick={handleClick}>
             <Badge badgeContent={props.cartProps} color="secondary">
-              <ShoppingCartIcon>{/* <Cart {...props} /> */}</ShoppingCartIcon>
+              <ShoppingCartIcon></ShoppingCartIcon>
             </Badge>
           </IconButton>
           <IconButton
@@ -182,11 +157,9 @@ function MainNavBar(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     cartProps: state.cartReducer.cartProducts,
   };
 };
 
-// export default connect(mapStateToProps, { addToCart })(MainNavBar);
 export default connect(mapStateToProps, { getNumbers })(MainNavBar);

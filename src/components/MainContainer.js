@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../store/Product";
 import { connect } from "react-redux";
@@ -21,7 +20,7 @@ const MainContainer = (props) => {
       alignItems="flex-start"
     >
       {props.products.map((product) => (
-        <Grid item spacing={3}>
+        <Grid item>
           <ProductCard //pass product
             key={product.id}
             product={product}

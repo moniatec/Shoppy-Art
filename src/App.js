@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Splash from "./components/Splash";
 import LoginPage from "./components/LoginPage";
 import RegistrationForm from "./components/RegistrationForm";
@@ -9,7 +9,6 @@ import Home from "./components/Home";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 import CartIcon from "./components/CartIcon";
-import { persistStore, autoRehydrate } from "redux-persist";
 
 class App extends React.Component {
   constructor(props) {
