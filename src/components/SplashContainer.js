@@ -15,19 +15,19 @@ const useStyles = makeStyles({
     marginTop: 300,
     width: "100%",
     // maxWidth: 200,
-    marginLeft: 200,
+    marginLeft: 300,
   },
   title1: {
-    marginLeft: 400,
+    marginLeft: 500,
   },
   art: {
     color: "#6fb3c2",
   },
   title2: {
-    marginLeft: 450,
+    marginLeft: 550,
   },
   title3: {
-    marginLeft: 200,
+    marginLeft: 300,
   },
 });
 
@@ -51,16 +51,16 @@ const SplashContainer = (props) => {
         <div className={classes.root}>
           <Typography
             className={classes.title1}
-            variant="h2"
-            component="h2"
+            variant="h3"
+            component="h3"
             gutterBottom
           >
             Welcome to <b className={classes.art}> Shoppy-Art </b>
           </Typography>
-          <Typography className={classes.title2} variant="h2" gutterBottom>
+          <Typography className={classes.title2} variant="h3" gutterBottom>
             Find things you'll love.
           </Typography>
-          <Typography className={classes.title3} variant="h2" gutterBottom>
+          <Typography className={classes.title3} variant="h3" gutterBottom>
             Shop unique artistic items only on Shoppy-Art.
           </Typography>
         </div>

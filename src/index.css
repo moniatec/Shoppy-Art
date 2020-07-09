@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+
+@-ms-viewport {
+    width: device-width;
+  }
+  
+  @media screen and (max-width: 480px) {
+    html,
+    body {
+      min-width: 320px;
+    }
+  }

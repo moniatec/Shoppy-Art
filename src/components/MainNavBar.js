@@ -14,6 +14,8 @@ import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { getNumbers } from "./getActions";
+import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,7 +104,10 @@ function MainNavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <h2 className={classes.title}>Shoppy-Art</h2>
+          {/* <h2 className={classes.title}>Shoppy-Art</h2> */}
+          <NavLink style={{ color: 'white', }} to="/home">
+            <Button color="inherit">Shoppy-Art</Button>
+          </NavLink>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
